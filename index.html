@@ -1,0 +1,2240 @@
+```html
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO -->
+    <title>NOVA Café | Café artesanal & momentos especiales</title>
+
+    <meta name="description"
+        content="NOVA Café. Café artesanal, desayunos, postres y momentos especiales en un ambiente moderno y acogedor.">
+
+    <meta name="keywords"
+        content="cafetería, café artesanal, desayunos, postres, café, restaurante">
+
+    <meta name="author" content="NOVA Café">
+
+    <!-- Color del navegador en celular -->
+    <meta name="theme-color" content="#120b08">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700;800&display=swap"
+        rel="stylesheet">
+
+
+    <style>
+
+        /* =========================
+           VARIABLES
+        ========================= */
+
+        :root {
+            --cafe: #8b542f;
+            --cafe-oscuro: #351a10;
+            --crema: #f8f1e7;
+            --crema-2: #fffaf4;
+            --blanco: #ffffff;
+            --negro: #15100d;
+            --gris: #6f6762;
+            --dorado: #d9a441;
+
+            --sombra:
+                0 20px 60px rgba(40, 20, 10, .15);
+
+            --radio: 25px;
+        }
+
+
+        /* =========================
+           RESET
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "DM Sans", sans-serif;
+            background: var(--crema-2);
+            color: var(--negro);
+            overflow-x: hidden;
+        }
+
+        img {
+            width: 100%;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button,
+        input,
+        textarea {
+            font-family: inherit;
+        }
+
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 80px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 7%;
+
+            z-index: 1000;
+
+            background: rgba(18, 11, 8, .75);
+            backdrop-filter: blur(15px);
+
+            border-bottom: 1px solid rgba(255,255,255,.08);
+        }
+
+        .logo {
+            color: white;
+            font-family: "Playfair Display", serif;
+            font-size: 30px;
+            font-weight: 800;
+        }
+
+        .logo span {
+            color: var(--dorado);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            font-size: 14px;
+            transition: .3s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: "";
+
+            position: absolute;
+            left: 0;
+            bottom: -7px;
+
+            width: 0;
+            height: 2px;
+
+            background: var(--dorado);
+
+            transition: .3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--dorado);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-button {
+            background: var(--dorado);
+            color: #24170e;
+
+            padding: 12px 22px;
+            border-radius: 50px;
+
+            font-weight: 700;
+
+            transition: .3s;
+        }
+
+        .nav-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(217,164,65,.35);
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            min-height: 100vh;
+
+            display: flex;
+            align-items: center;
+
+            position: relative;
+
+            padding: 140px 7% 80px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(18,11,8,.95),
+                    rgba(18,11,8,.72),
+                    rgba(18,11,8,.25)
+                ),
+                url("https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=2000&q=85");
+
+            background-size: cover;
+            background-position: center;
+        }
+
+
+        .hero-content {
+            max-width: 700px;
+            color: white;
+
+            animation: heroEntrada 1s ease forwards;
+        }
+
+        @keyframes heroEntrada {
+
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+
+        .mini-title {
+            display: inline-block;
+
+            color: var(--dorado);
+
+            text-transform: uppercase;
+            letter-spacing: 4px;
+
+            font-size: 13px;
+            font-weight: 700;
+
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-family: "Playfair Display", serif;
+
+            font-size: clamp(55px, 7vw, 95px);
+
+            line-height: .95;
+
+            margin-bottom: 28px;
+        }
+
+        .hero h1 span {
+            color: var(--dorado);
+        }
+
+        .hero p {
+            max-width: 600px;
+
+            font-size: 18px;
+            line-height: 1.8;
+
+            color: #e8dfd9;
+
+            margin-bottom: 35px;
+        }
+
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+
+            align-items: center;
+            justify-content: center;
+
+            padding: 16px 28px;
+
+            border-radius: 50px;
+
+            font-weight: 700;
+
+            transition: .3s;
+        }
+
+        .btn-primary {
+            background: var(--dorado);
+            color: #25170d;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(217,164,65,.35);
+        }
+
+        .btn-secondary {
+            border: 1px solid rgba(255,255,255,.5);
+            color: white;
+            backdrop-filter: blur(5px);
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: var(--negro);
+        }
+
+
+        /* =========================
+           SCROLL INDICATOR
+        ========================= */
+
+        .scroll {
+            position: absolute;
+
+            bottom: 30px;
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            color: white;
+
+            font-size: 12px;
+            letter-spacing: 3px;
+
+            animation: bajar 1.5s infinite;
+        }
+
+        @keyframes bajar {
+
+            0%,100% {
+                transform: translate(-50%, 0);
+            }
+
+            50% {
+                transform: translate(-50%, 10px);
+            }
+
+        }
+
+
+        /* =========================
+           GENERAL
+        ========================= */
+
+        section {
+            padding: 110px 7%;
+        }
+
+        .section-title {
+            max-width: 700px;
+            margin-bottom: 55px;
+        }
+
+        .section-title small {
+            color: var(--cafe);
+
+            text-transform: uppercase;
+            letter-spacing: 3px;
+
+            font-weight: 700;
+        }
+
+        .section-title h2 {
+            font-family: "Playfair Display", serif;
+
+            font-size: clamp(40px, 5vw, 65px);
+
+            line-height: 1;
+
+            margin: 15px 0;
+        }
+
+        .section-title p {
+            color: var(--gris);
+            line-height: 1.8;
+        }
+
+
+        /* =========================
+           FEATURES
+        ========================= */
+
+        .features {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 25px;
+        }
+
+        .feature {
+            padding: 35px;
+
+            background: white;
+
+            border-radius: var(--radio);
+
+            box-shadow: var(--sombra);
+
+            transition: .4s;
+
+            border: 1px solid #eee;
+        }
+
+        .feature:hover {
+            transform: translateY(-12px);
+        }
+
+        .feature-icon {
+            width: 65px;
+            height: 65px;
+
+            display: grid;
+            place-items: center;
+
+            border-radius: 18px;
+
+            background: var(--crema);
+
+            font-size: 30px;
+
+            margin-bottom: 25px;
+        }
+
+        .feature h3 {
+            font-family: "Playfair Display", serif;
+
+            font-size: 26px;
+
+            margin-bottom: 12px;
+        }
+
+        .feature p {
+            color: var(--gris);
+            line-height: 1.7;
+        }
+
+
+        /* =========================
+           ABOUT
+        ========================= */
+
+        .about {
+            background: var(--crema);
+        }
+
+        .about-grid {
+            display: grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            gap: 70px;
+
+            align-items: center;
+        }
+
+        .about-images {
+            position: relative;
+        }
+
+        .about-main {
+            height: 600px;
+
+            object-fit: cover;
+
+            border-radius: 35px;
+        }
+
+        .about-small {
+            position: absolute;
+
+            width: 230px;
+            height: 270px;
+
+            object-fit: cover;
+
+            bottom: -40px;
+            right: -30px;
+
+            border: 12px solid var(--crema);
+
+            border-radius: 30px;
+        }
+
+        .about-text p {
+            color: var(--gris);
+
+            line-height: 1.9;
+
+            margin-bottom: 25px;
+        }
+
+        .numbers {
+            display: flex;
+            gap: 40px;
+
+            margin-top: 35px;
+        }
+
+        .number h3 {
+            font-family: "Playfair Display", serif;
+            font-size: 40px;
+        }
+
+        .number span {
+            color: var(--gris);
+            font-size: 14px;
+        }
+
+
+        /* =========================
+           MENU
+        ========================= */
+
+        .menu-section {
+            background: #170d09;
+            color: white;
+        }
+
+        .menu-section .section-title p {
+            color: #bdb1ab;
+        }
+
+        .menu-section .section-title small {
+            color: var(--dorado);
+        }
+
+        .menu-section .section-title h2 {
+            color: white;
+        }
+
+        .menu-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 25px;
+        }
+
+        .product {
+            overflow: hidden;
+
+            background: #24150f;
+
+            border-radius: 25px;
+
+            border: 1px solid rgba(255,255,255,.08);
+
+            transition: .4s;
+        }
+
+        .product:hover {
+            transform: translateY(-12px) scale(1.02);
+            border-color: var(--dorado);
+        }
+
+        .product-image {
+            height: 270px;
+            overflow: hidden;
+        }
+
+        .product-image img {
+            height: 100%;
+            object-fit: cover;
+
+            transition: .6s;
+        }
+
+        .product:hover img {
+            transform: scale(1.1);
+        }
+
+        .product-info {
+            padding: 25px;
+        }
+
+        .product-info h3 {
+            font-family: "Playfair Display", serif;
+            font-size: 25px;
+
+            margin-bottom: 8px;
+        }
+
+        .product-info p {
+            color: #b9aaa1;
+
+            line-height: 1.6;
+
+            font-size: 14px;
+
+            margin-bottom: 18px;
+        }
+
+        .price {
+            color: var(--dorado);
+
+            font-size: 21px;
+
+            font-weight: 800;
+        }
+
+
+        /* =========================
+           PROMO
+        ========================= */
+
+        .promo {
+            margin: 100px 7%;
+
+            min-height: 430px;
+
+            border-radius: 35px;
+
+            display: flex;
+            align-items: center;
+
+            padding: 70px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(30,15,8,.95),
+                    rgba(30,15,8,.4)
+                ),
+                url("https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=1800&q=85");
+
+            background-size: cover;
+            background-position: center;
+
+            color: white;
+
+            overflow: hidden;
+
+            position: relative;
+        }
+
+        .promo::before {
+            content: "";
+
+            position: absolute;
+
+            width: 250px;
+            height: 250px;
+
+            border: 1px solid rgba(255,255,255,.15);
+
+            border-radius: 50%;
+
+            right: 10%;
+            top: -80px;
+
+            animation: girar 15s linear infinite;
+        }
+
+        @keyframes girar {
+
+            to {
+                transform: rotate(360deg);
+            }
+
+        }
+
+        .promo-content {
+            max-width: 650px;
+            position: relative;
+        }
+
+        .promo h2 {
+            font-family: "Playfair Display", serif;
+
+            font-size: clamp(40px, 5vw, 65px);
+
+            margin: 15px 0;
+        }
+
+        .promo p {
+            color: #eee;
+
+            line-height: 1.8;
+
+            margin-bottom: 25px;
+        }
+
+
+        /* =========================
+           GALERÍA
+        ========================= */
+
+        .gallery {
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            grid-auto-rows: 250px;
+
+            gap: 15px;
+        }
+
+        .gallery-item {
+            overflow: hidden;
+            border-radius: 20px;
+
+            position: relative;
+        }
+
+        .gallery-item:nth-child(1) {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+
+        .gallery-item img {
+            height: 100%;
+            object-fit: cover;
+
+            transition: .6s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.12);
+            filter: brightness(.65);
+        }
+
+        .gallery-caption {
+            position: absolute;
+
+            left: 25px;
+            bottom: 20px;
+
+            color: white;
+
+            font-size: 20px;
+            font-weight: 700;
+
+            opacity: 0;
+
+            transform: translateY(15px);
+
+            transition: .4s;
+        }
+
+        .gallery-item:hover .gallery-caption {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+
+        /* =========================
+           TESTIMONIOS
+        ========================= */
+
+        .testimonials {
+            background: var(--crema);
+        }
+
+        .reviews {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 25px;
+        }
+
+        .review {
+            background: white;
+
+            padding: 35px;
+
+            border-radius: 25px;
+
+            box-shadow: var(--sombra);
+
+            transition: .4s;
+        }
+
+        .review:hover {
+            transform: translateY(-8px);
+        }
+
+        .stars {
+            color: var(--dorado);
+
+            font-size: 20px;
+
+            margin-bottom: 20px;
+        }
+
+        .review p {
+            color: var(--gris);
+
+            line-height: 1.8;
+
+            margin-bottom: 25px;
+        }
+
+        .client {
+            font-weight: 800;
+        }
+
+
+        /* =========================
+           CONTACTO
+        ========================= */
+
+        .contact-grid {
+            display: grid;
+
+            grid-template-columns:
+                .8fr 1.2fr;
+
+            gap: 60px;
+        }
+
+        .contact-info {
+            display: grid;
+            gap: 20px;
+        }
+
+        .contact-box {
+            display: flex;
+            gap: 18px;
+
+            align-items: center;
+        }
+
+        .contact-icon {
+            width: 55px;
+            height: 55px;
+
+            display: grid;
+            place-items: center;
+
+            background: var(--crema);
+
+            border-radius: 15px;
+
+            font-size: 23px;
+        }
+
+        .contact-box h4 {
+            margin-bottom: 4px;
+        }
+
+        .contact-box p {
+            color: var(--gris);
+        }
+
+
+        .contact-form {
+            background: var(--crema);
+
+            padding: 40px;
+
+            border-radius: 30px;
+        }
+
+        .form-row {
+            display: grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            gap: 15px;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+
+            border: 1px solid #ddd;
+
+            background: white;
+
+            padding: 17px;
+
+            border-radius: 12px;
+
+            outline: none;
+
+            margin-bottom: 15px;
+
+            transition: .3s;
+        }
+
+        input:focus,
+        textarea:focus {
+            border-color: var(--cafe);
+
+            box-shadow:
+                0 0 0 4px rgba(139,84,47,.08);
+        }
+
+        textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        .submit {
+            width: 100%;
+
+            border: none;
+
+            cursor: pointer;
+
+            background: var(--cafe);
+
+            color: white;
+
+            padding: 17px;
+
+            border-radius: 12px;
+
+            font-weight: 700;
+
+            transition: .3s;
+        }
+
+        .submit:hover {
+            background: var(--cafe-oscuro);
+
+            transform: translateY(-3px);
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            background: #120b08;
+
+            color: white;
+
+            padding: 60px 7% 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+
+            grid-template-columns:
+                2fr 1fr 1fr;
+
+            gap: 50px;
+
+            padding-bottom: 50px;
+
+            border-bottom: 1px solid rgba(255,255,255,.1);
+        }
+
+        .footer-logo {
+            font-family: "Playfair Display", serif;
+
+            font-size: 35px;
+
+            margin-bottom: 15px;
+        }
+
+        footer p {
+            color: #a99d96;
+
+            line-height: 1.7;
+        }
+
+        .footer-title {
+            font-weight: 700;
+            margin-bottom: 18px;
+        }
+
+        .footer-links {
+            display: grid;
+            gap: 12px;
+        }
+
+        .footer-links a {
+            color: #a99d96;
+            transition: .3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--dorado);
+            transform: translateX(5px);
+        }
+
+        .copyright {
+            text-align: center;
+
+            padding-top: 25px;
+
+            color: #766c67;
+
+            font-size: 13px;
+        }
+
+
+        /* =========================
+           WHATSAPP
+        ========================= */
+
+        .whatsapp {
+            position: fixed;
+
+            right: 25px;
+            bottom: 25px;
+
+            width: 60px;
+            height: 60px;
+
+            display: grid;
+            place-items: center;
+
+            border-radius: 50%;
+
+            background: #25d366;
+
+            color: white;
+
+            font-size: 28px;
+
+            z-index: 999;
+
+            box-shadow:
+                0 10px 30px rgba(0,0,0,.25);
+
+            transition: .3s;
+
+            animation: whatsapp 2s infinite;
+        }
+
+        .whatsapp:hover {
+            transform: scale(1.12);
+        }
+
+        @keyframes whatsapp {
+
+            0%,100% {
+                box-shadow:
+                    0 0 0 0 rgba(37,211,102,.4);
+            }
+
+            50% {
+                box-shadow:
+                    0 0 0 15px rgba(37,211,102,0);
+            }
+
+        }
+
+
+        /* =========================
+           ANIMACIONES SCROLL
+        ========================= */
+
+        .reveal {
+            opacity: 0;
+
+            transform: translateY(50px);
+
+            transition:
+                opacity .8s ease,
+                transform .8s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media(max-width: 1000px) {
+
+            .features,
+            .menu-grid,
+            .reviews {
+                grid-template-columns:
+                    repeat(2,1fr);
+            }
+
+            .about-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-small {
+                right: 20px;
+            }
+
+            .gallery {
+                grid-template-columns:
+                    repeat(2,1fr);
+            }
+
+        }
+
+
+        @media(max-width: 700px) {
+
+            .navbar {
+                padding: 0 5%;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .nav-button {
+                padding: 10px 15px;
+                font-size: 13px;
+            }
+
+            section {
+                padding: 80px 5%;
+            }
+
+            .hero {
+                padding-left: 5%;
+                padding-right: 5%;
+
+                background-position: 65% center;
+            }
+
+            .hero h1 {
+                font-size: 55px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .features,
+            .menu-grid,
+            .reviews {
+                grid-template-columns: 1fr;
+            }
+
+            .about-main {
+                height: 450px;
+            }
+
+            .about-small {
+                width: 170px;
+                height: 200px;
+            }
+
+            .numbers {
+                gap: 20px;
+            }
+
+            .number h3 {
+                font-size: 30px;
+            }
+
+            .promo {
+                margin: 60px 5%;
+
+                padding: 40px 25px;
+            }
+
+            .gallery {
+                grid-template-columns: 1fr;
+
+                grid-auto-rows: 250px;
+            }
+
+            .gallery-item:nth-child(1) {
+                grid-column: span 1;
+                grid-row: span 1;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-form {
+                padding: 25px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+
+        /* =========================
+           REDUCIR ANIMACIONES
+        ========================= */
+
+        @media(prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: .01ms !important;
+                transition-duration: .01ms !important;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         NAVBAR
+    ========================= -->
+
+    <header class="navbar">
+
+        <a href="#" class="logo">
+            NOVA<span>.</span>
+        </a>
+
+        <nav>
+
+            <ul class="nav-links">
+
+                <li>
+                    <a href="#inicio">Inicio</a>
+                </li>
+
+                <li>
+                    <a href="#nosotros">Nosotros</a>
+                </li>
+
+                <li>
+                    <a href="#menu">Menú</a>
+                </li>
+
+                <li>
+                    <a href="#galeria">Galería</a>
+                </li>
+
+                <li>
+                    <a href="#contacto">Contacto</a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+        <a
+            href="#contacto"
+            class="nav-button">
+            Reservar
+        </a>
+
+    </header>
+
+
+    <!-- =========================
+         HERO
+    ========================= -->
+
+    <section class="hero" id="inicio">
+
+        <div class="hero-content">
+
+            <span class="mini-title">
+                Café artesanal · Desde 2018
+            </span>
+
+            <h1>
+                El café que convierte
+                <span>momentos</span>
+                en recuerdos.
+            </h1>
+
+            <p>
+                Descubre café artesanal, desayunos deliciosos
+                y postres preparados para hacer especial
+                cada visita.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a
+                    href="#menu"
+                    class="btn btn-primary">
+                    Ver nuestro menú
+                </a>
+
+                <a
+                    href="#contacto"
+                    class="btn btn-secondary">
+                    Reservar una mesa
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="scroll">
+            SCROLL ↓
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         FEATURES
+    ========================= -->
+
+    <section>
+
+        <div class="section-title reveal">
+
+            <small>
+                ¿Por qué NOVA?
+            </small>
+
+            <h2>
+                Más que una cafetería.
+            </h2>
+
+            <p>
+                Creamos una experiencia alrededor del café,
+                desde el primer aroma hasta el último sorbo.
+            </p>
+
+        </div>
+
+
+        <div class="features">
+
+            <article class="feature reveal">
+
+                <div class="feature-icon">
+                    ☕
+                </div>
+
+                <h3>
+                    Café artesanal
+                </h3>
+
+                <p>
+                    Granos seleccionados y preparados
+                    cuidadosamente para conseguir un sabor
+                    excepcional.
+                </p>
+
+            </article>
+
+
+            <article class="feature reveal">
+
+                <div class="feature-icon">
+                    🥐
+                </div>
+
+                <h3>
+                    Hecho en casa
+                </h3>
+
+                <p>
+                    Panadería, postres y desayunos preparados
+                    diariamente con ingredientes frescos.
+                </p>
+
+            </article>
+
+
+            <article class="feature reveal">
+
+                <div class="feature-icon">
+                    ✨
+                </div>
+
+                <h3>
+                    Ambiente único
+                </h3>
+
+                <p>
+                    Un espacio diseñado para disfrutar,
+                    trabajar, conversar o simplemente relajarte.
+                </p>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         NOSOTROS
+    ========================= -->
+
+    <section class="about" id="nosotros">
+
+        <div class="about-grid">
+
+
+            <div class="about-images reveal">
+
+                <img
+                    class="about-main"
+                    src="https://images.unsplash.com/photo-1445116572660-236099ec97a0?auto=format&fit=crop&w=1200&q=85"
+                    alt="Interior de NOVA Café">
+
+                <img
+                    class="about-small"
+                    src="https://images.unsplash.com/photo-1498804103079-a6351b050096?auto=format&fit=crop&w=700&q=85"
+                    alt="Café artesanal">
+
+            </div>
+
+
+            <div class="about-text reveal">
+
+                <div class="section-title">
+
+                    <small>
+                        Nuestra historia
+                    </small>
+
+                    <h2>
+                        Un lugar para disfrutar sin prisa.
+                    </h2>
+
+                </div>
+
+                <p>
+                    NOVA nació con una idea sencilla:
+                    crear un lugar donde el café fuera mucho
+                    más que una bebida.
+                </p>
+
+                <p>
+                    Queremos que cada persona que nos visite
+                    encuentre un espacio donde pueda disfrutar
+                    de buena comida, buen café y buenos momentos.
+                </p>
+
+
+                <div class="numbers">
+
+                    <div class="number">
+
+                        <h3>8+</h3>
+
+                        <span>
+                            Años creando
+                        </span>
+
+                    </div>
+
+                    <div class="number">
+
+                        <h3>25k</h3>
+
+                        <span>
+                            Clientes felices
+                        </span>
+
+                    </div>
+
+                    <div class="number">
+
+                        <h3>4.9</h3>
+
+                        <span>
+                            ⭐ Rating
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         MENÚ
+    ========================= -->
+
+    <section class="menu-section" id="menu">
+
+        <div class="section-title reveal">
+
+            <small>
+                Nuestro menú
+            </small>
+
+            <h2>
+                Tus favoritos,
+                hechos con pasión.
+            </h2>
+
+            <p>
+                Algunos de nuestros productos favoritos.
+            </p>
+
+        </div>
+
+
+        <div class="menu-grid">
+
+
+            <article class="product reveal">
+
+                <div class="product-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=900&q=85"
+                        alt="Café americano">
+
+                </div>
+
+                <div class="product-info">
+
+                    <h3>
+                        Americano NOVA
+                    </h3>
+
+                    <p>
+                        Espresso doble con agua caliente
+                        y un aroma intenso.
+                    </p>
+
+                    <span class="price">
+                        $55 MXN
+                    </span>
+
+                </div>
+
+            </article>
+
+
+            <article class="product reveal">
+
+                <div class="product-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1534778101976-62847782c213?auto=format&fit=crop&w=900&q=85"
+                        alt="Cappuccino">
+
+                </div>
+
+                <div class="product-info">
+
+                    <h3>
+                        Cappuccino
+                    </h3>
+
+                    <p>
+                        Espresso, leche cremosa y
+                        espuma perfectamente equilibrada.
+                    </p>
+
+                    <span class="price">
+                        $69 MXN
+                    </span>
+
+                </div>
+
+            </article>
+
+
+            <article class="product reveal">
+
+                <div class="product-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=900&q=85"
+                        alt="Latte">
+
+                </div>
+
+                <div class="product-info">
+
+                    <h3>
+                        Vanilla Latte
+                    </h3>
+
+                    <p>
+                        Latte cremoso con un toque
+                        dulce de vainilla.
+                    </p>
+
+                    <span class="price">
+                        $75 MXN
+                    </span>
+
+                </div>
+
+            </article>
+
+
+            <article class="product reveal">
+
+                <div class="product-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&w=900&q=85"
+                        alt="Donas">
+
+                </div>
+
+                <div class="product-info">
+
+                    <h3>
+                        Donas NOVA
+                    </h3>
+
+                    <p>
+                        Donas suaves con diferentes
+                        toppings preparados en casa.
+                    </p>
+
+                    <span class="price">
+                        $48 MXN
+                    </span>
+
+                </div>
+
+            </article>
+
+
+            <article class="product reveal">
+
+                <div class="product-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=900&q=85"
+                        alt="Pastel de chocolate">
+
+                </div>
+
+                <div class="product-info">
+
+                    <h3>
+                        Chocolate Cake
+                    </h3>
+
+                    <p>
+                        Pastel de chocolate con textura
+                        suave y cremosa.
+                    </p>
+
+                    <span class="price">
+                        $85 MXN
+                    </span>
+
+                </div>
+
+            </article>
+
+
+            <article class="product reveal">
+
+                <div class="product-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=900&q=85"
+                        alt="Postre">
+
+                </div>
+
+                <div class="product-info">
+
+                    <h3>
+                        Sweet NOVA
+                    </h3>
+
+                    <p>
+                        Un postre especial para cerrar
+                        tu visita de la mejor manera.
+                    </p>
+
+                    <span class="price">
+                        $79 MXN
+                    </span>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         PROMOCIÓN
+    ========================= -->
+
+    <div class="promo">
+
+        <div class="promo-content reveal">
+
+            <small class="mini-title">
+                PROMOCIÓN DE LA SEMANA
+            </small>
+
+            <h2>
+                Café + postre
+                por solo $99
+            </h2>
+
+            <p>
+                Ven de lunes a viernes y disfruta nuestra
+                promoción especial. Perfecta para una tarde
+                con amigos.
+            </p>
+
+            <a
+                href="#contacto"
+                class="btn btn-primary">
+                Quiero aprovecharla
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         GALERÍA
+    ========================= -->
+
+    <section id="galeria">
+
+        <div class="section-title reveal">
+
+            <small>
+                Galería
+            </small>
+
+            <h2>
+                Así se vive NOVA.
+            </h2>
+
+            <p>
+                Un pequeño vistazo a nuestro espacio.
+            </p>
+
+        </div>
+
+
+        <div class="gallery">
+
+
+            <div class="gallery-item reveal">
+
+                <img
+                    src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1200&q=85"
+                    alt="Café">
+
+                <span class="gallery-caption">
+                    Nuestro café
+                </span>
+
+            </div>
+
+
+            <div class="gallery-item reveal">
+
+                <img
+                    src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=900&q=85"
+                    alt="Interior">
+
+                <span class="gallery-caption">
+                    Nuestro espacio
+                </span>
+
+            </div>
+
+
+            <div class="gallery-item reveal">
+
+                <img
+                    src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=900&q=85"
+                    alt="Cafetería">
+
+                <span class="gallery-caption">
+                    Momentos
+                </span>
+
+            </div>
+
+
+            <div class="gallery-item reveal">
+
+                <img
+                    src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=900&q=85"
+                    alt="Café y trabajo">
+
+                <span class="gallery-caption">
+                    Work & Coffee
+                </span>
+
+            </div>
+
+
+            <div class="gallery-item reveal">
+
+                <img
+                    src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=900&q=85"
+                    alt="Cafetería moderna">
+
+                <span class="gallery-caption">
+                    NOVA Café
+                </span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         TESTIMONIOS
+    ========================= -->
+
+    <section class="testimonials">
+
+        <div class="section-title reveal">
+
+            <small>
+                Opiniones
+            </small>
+
+            <h2>
+                Lo que dicen nuestros clientes.
+            </h2>
+
+        </div>
+
+
+        <div class="reviews">
+
+
+            <article class="review reveal">
+
+                <div class="stars">
+                    ★★★★★
+                </div>
+
+                <p>
+                    "El café está increíble y el lugar tiene
+                    una vibra espectacular. Definitivamente
+                    voy a volver."
+                </p>
+
+                <span class="client">
+                    — Sofía M.
+                </span>
+
+            </article>
+
+
+            <article class="review reveal">
+
+                <div class="stars">
+                    ★★★★★
+                </div>
+
+                <p>
+                    "Perfecto para trabajar, estudiar o
+                    simplemente pasar una tarde tranquila.
+                    Todo está delicioso."
+                </p>
+
+                <span class="client">
+                    — Daniel R.
+                </span>
+
+            </article>
+
+
+            <article class="review reveal">
+
+                <div class="stars">
+                    ★★★★★
+                </div>
+
+                <p>
+                    "El ambiente, el servicio y los postres
+                    son excelentes. Mi cafetería favorita."
+                </p>
+
+                <span class="client">
+                    — Valeria G.
+                </span>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         CONTACTO
+    ========================= -->
+
+    <section id="contacto">
+
+        <div class="section-title reveal">
+
+            <small>
+                Contacto
+            </small>
+
+            <h2>
+                ¿Nos vemos pronto?
+            </h2>
+
+            <p>
+                Reserva una mesa o escríbenos.
+            </p>
+
+        </div>
+
+
+        <div class="contact-grid">
+
+
+            <div class="contact-info reveal">
+
+
+                <div class="contact-box">
+
+                    <div class="contact-icon">
+                        📍
+                    </div>
+
+                    <div>
+
+                        <h4>
+                            Dirección
+                        </h4>
+
+                        <p>
+                            Av. Principal #123,
+                            Ciudad de México
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="contact-box">
+
+                    <div class="contact-icon">
+                        📞
+                    </div>
+
+                    <div>
+
+                        <h4>
+                            Teléfono
+                        </h4>
+
+                        <p>
+                            55 1234 5678
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="contact-box">
+
+                    <div class="contact-icon">
+                        🕐
+                    </div>
+
+                    <div>
+
+                        <h4>
+                            Horario
+                        </h4>
+
+                        <p>
+                            Lunes - Domingo
+                            <br>
+                            8:00 AM - 10:00 PM
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <form class="contact-form reveal" id="formulario">
+
+                <div class="form-row">
+
+                    <input
+                        type="text"
+                        placeholder="Tu nombre"
+                        required>
+
+                    <input
+                        type="email"
+                        placeholder="Tu correo"
+                        required>
+
+                </div>
+
+                <input
+                    type="tel"
+                    placeholder="Tu teléfono">
+
+                <textarea
+                    placeholder="¿En qué podemos ayudarte?"
+                    required></textarea>
+
+                <button
+                    class="submit"
+                    type="submit">
+
+                    Enviar mensaje
+
+                </button>
+
+            </form>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
+
+    <footer>
+
+        <div class="footer-grid">
+
+
+            <div>
+
+                <div class="footer-logo">
+                    NOVA.
+                </div>
+
+                <p>
+                    Café artesanal, comida deliciosa
+                    y momentos que vale la pena recordar.
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <div class="footer-title">
+                    Navegación
+                </div>
+
+                <div class="footer-links">
+
+                    <a href="#inicio">
+                        Inicio
+                    </a>
+
+                    <a href="#nosotros">
+                        Nosotros
+                    </a>
+
+                    <a href="#menu">
+                        Menú
+                    </a>
+
+                    <a href="#galeria">
+                        Galería
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div>
+
+                <div class="footer-title">
+                    Síguenos
+                </div>
+
+                <div class="footer-links">
+
+                    <a href="#">
+                        Instagram
+                    </a>
+
+                    <a href="#">
+                        Facebook
+                    </a>
+
+                    <a href="#">
+                        TikTok
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="copyright">
+
+            © 2026 NOVA Café.
+            Todos los derechos reservados.
+
+        </div>
+
+    </footer>
+
+
+    <!-- =========================
+         WHATSAPP
+    ========================= -->
+
+    <!-- CAMBIA EL NÚMERO POR EL DEL NEGOCIO -->
+
+    <a
+        class="whatsapp"
+        href="https://wa.me/5215512345678"
+        target="_blank"
+        aria-label="WhatsApp">
+
+        ☎
+
+    </a>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================= -->
+
+    <script>
+
+        /* =========================
+           ANIMACIONES AL HACER SCROLL
+        ========================= */
+
+        const elementos =
+            document.querySelectorAll(".reveal");
+
+
+        const observer =
+            new IntersectionObserver(
+
+                (entradas) => {
+
+                    entradas.forEach(
+                        (entrada) => {
+
+                            if (entrada.isIntersecting) {
+
+                                entrada.target
+                                    .classList
+                                    .add("active");
+
+                            }
+
+                        }
+                    );
+
+                },
+
+                {
+                    threshold: 0.15
+                }
+
+            );
+
+
+        elementos.forEach(
+            (elemento) => {
+
+                observer.observe(elemento);
+
+            }
+        );
+
+
+        /* =========================
+           FORMULARIO
+        ========================= */
+
+        const formulario =
+            document.getElementById("formulario");
+
+
+        formulario.addEventListener(
+            "submit",
+
+            function(event) {
+
+                event.preventDefault();
+
+                alert(
+                    "¡Gracias! Tu mensaje ha sido enviado."
+                );
+
+                formulario.reset();
+
+            }
+
+        );
+
+    </script>
+
+</body>
+
+</html>
+```
